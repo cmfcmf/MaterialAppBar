@@ -5,7 +5,8 @@
         $("a[data-sidenav]").each(function () {
             var target = $(this).data('sidenav');
             $('#' + target).hide();
-            $(this).on('click touchend', function () {
+            $(this).on('click touchend', function (e) {
+                e.preventDefault();
                 currentTarget = target;
                 $('#' + target).animate({width:'show'}, 240);
                 $('#sidenav-backdrop').fadeIn();
@@ -17,4 +18,3 @@
         });
     })
 })(jQuery);
-
